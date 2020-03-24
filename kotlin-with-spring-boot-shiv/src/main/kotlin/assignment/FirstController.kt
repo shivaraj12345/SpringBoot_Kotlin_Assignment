@@ -36,20 +36,4 @@ class FirstController {
     fun findByRegion(@PathVariable region:String)
             = repository?.findByregion(region.toLowerCase())
 
-
-    /**
-     * Perform some string manipulation on the given value
-     * @param value The value to manipulate
-     * @param operation The operation to perform
-     */
-    @RequestMapping("/string/{value}")
-    fun manipulateString(@PathVariable("value") value: String,
-                         @RequestParam(name = "operation", defaultValue = "none") operation: String) : String {
-        return when (operation.toUpperCase()) {
-            "REVERSE" -> value.reversed()
-            "UPPER" -> value.toUpperCase()
-            "LOWER" -> value.toLowerCase()
-            else -> value
-        }
-    }
 }
